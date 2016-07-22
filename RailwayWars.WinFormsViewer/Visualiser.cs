@@ -111,13 +111,13 @@ namespace RailwayWars.WinFormsViewer
             {
                 return new[]
                 {
-                    PointF.Add(CellToCenter(cell.X, cell.Y), new Size(CellWidth/2 - CellWidth, -CellHeight/3)),
-                    PointF.Add(CellToCenter(cell.X, cell.Y), new Size(0, -2*CellHeight/3)),
-                    PointF.Add(CellToCenter(cell.X, cell.Y), new Size(CellWidth/2, -CellHeight/3)),
-                    PointF.Add(CellToCenter(cell.X, cell.Y), new Size(CellWidth/2, CellHeight - 2*CellHeight/3)),
-                    PointF.Add(CellToCenter(cell.X, cell.Y), new Size(0, CellHeight - CellHeight/3)),
-                    PointF.Add(CellToCenter(cell.X, cell.Y), new Size(CellWidth/2 - CellWidth, CellHeight - 2*CellHeight/3)),
-                    PointF.Add(CellToCenter(cell.X, cell.Y), new Size(CellWidth/2 - CellWidth , -CellHeight/3))
+                    CellToCenter(cell.X, cell.Y).Offset(CellWidth/2 - CellWidth, -CellHeight/3),
+                    CellToCenter(cell.X, cell.Y).Offset(0, -2*CellHeight/3),
+                    CellToCenter(cell.X, cell.Y).Offset(CellWidth/2, -CellHeight/3),
+                    CellToCenter(cell.X, cell.Y).Offset(CellWidth/2, CellHeight - 2*CellHeight/3),
+                    CellToCenter(cell.X, cell.Y).Offset(0, CellHeight - CellHeight/3),
+                    CellToCenter(cell.X, cell.Y).Offset(CellWidth/2 - CellWidth, CellHeight - 2*CellHeight/3),
+                    CellToCenter(cell.X, cell.Y).Offset(CellWidth/2 - CellWidth , -CellHeight/3)
                 };
             }
         }
@@ -153,7 +153,7 @@ namespace RailwayWars.WinFormsViewer
                       r.OwnedCells.ToList().ForEach(c =>
                       {
                           var p = t.CellToCenter(c);
-                          g.DrawLine(pen, p, p);
+                          g.DrawPoint(pen, p);
                       });
 
                       // next draw background tracks connecting two point of a railway (including cities)
@@ -184,7 +184,7 @@ namespace RailwayWars.WinFormsViewer
                   .ForEach(c =>
                   {
                       var p = t.CellToCenter(c);
-                      g.DrawLine(_cityPen, p, p);
+                      g.DrawPoint(_cityPen, p);
                   });
             }
 
