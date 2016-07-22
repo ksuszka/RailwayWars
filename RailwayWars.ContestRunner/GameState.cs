@@ -7,7 +7,7 @@ namespace RailwayWars.ContestRunner
 {
     public class GameState
     {
-        public static int MaxInactivityTurns = 50;
+        public int MaxInactivityTurns;
         public int TurnsTillEnd;
         public ISet<Cell> Cities { get; private set; }
         public IDictionary<Cell, FreeCell> FreeCells { get; private set; }
@@ -92,7 +92,8 @@ namespace RailwayWars.ContestRunner
                 Railways = players.ToDictionary(p => p.Id, p => new Railway() { Id = p.Id, Money = 0, Score = 0, OwnedCells = new HashSet<Cell>() }),
                 MinPrice = board.FreeCells.Select(c => c.Price).Min(),
                 MaxPrice = board.FreeCells.Select(c => c.Price).Max(),
-                TurnsTillEnd = MaxInactivityTurns,
+                MaxInactivityTurns = board.MaxInactivityTurns,
+                TurnsTillEnd = board.MaxInactivityTurns,
                 TurnProfit = board.TurnProfit
             };
         }

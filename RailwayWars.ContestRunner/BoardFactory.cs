@@ -60,6 +60,12 @@ namespace RailwayWars.ContestRunner
             return cells.Select(c => c.Price).Sum() / expectedTurnCount / playersCount;
         }
 
+        private static int CalculateMaxInactivityTurns(IEnumerable<FreeCell> cells, int turnProfit)
+        {
+            var maxPrice = cells.Select(c => c.Price).Max();
+            return Math.Max(10, 10 * maxPrice / turnProfit);
+        }
+
         public static BoardDefinition RandomSquareBoard(int size, int waterPercentage, int turnTimeMilliseconds, int expectedMatchDurationSeconds, int playersCount)
         {
             if (size <= 10) throw new ArgumentException($"Board side length must be greater than 10.");
@@ -76,7 +82,8 @@ namespace RailwayWars.ContestRunner
 
             var freeCells = cells.Where(kv => !cities.Contains(kv.Key)).Select(kv => new FreeCell(kv.Key.X, kv.Key.Y, kv.Value));
             var turnProfit = CalculateTurnProfit(freeCells, playersCount, turnTimeMilliseconds, expectedMatchDurationSeconds);
-            return new BoardDefinition(cities.ToList(), freeCells.ToList(), turnTime, turnProfit);
+            var maxInactivityTurns = CalculateMaxInactivityTurns(freeCells, turnProfit);
+            return new BoardDefinition(cities.ToList(), freeCells.ToList(), turnTime, turnProfit, maxInactivityTurns);
         }
 
         public static BoardDefinition MountainBoard(int size, int turnTimeMilliseconds, int expectedMatchDurationSeconds, int playersCount)
@@ -98,7 +105,8 @@ namespace RailwayWars.ContestRunner
 
             var freeCells = cells.Where(kv => !cities.Contains(kv.Key)).Select(kv => new FreeCell(kv.Key.X, kv.Key.Y, kv.Value));
             var turnProfit = CalculateTurnProfit(freeCells, playersCount, turnTimeMilliseconds, expectedMatchDurationSeconds);
-            return new BoardDefinition(cities.ToList(), freeCells.ToList(), turnTime, turnProfit);
+            var maxInactivityTurns = CalculateMaxInactivityTurns(freeCells, turnProfit);
+            return new BoardDefinition(cities.ToList(), freeCells.ToList(), turnTime, turnProfit, maxInactivityTurns);
         }
 
         public static Func<int, BoardDefinition> CreateRandomSquareBoardLoopGenerator(int size, int maxWaterPercentage, int turnTimeMilliseconds, int expectedMatchDurationSeconds)

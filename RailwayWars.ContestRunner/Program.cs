@@ -110,7 +110,7 @@ namespace RailwayWars.ContestRunner
             [Option('g', "generator", DefaultValue = "square", HelpText = "Board generator for tournament.")]
             public string Generator { get; set; }
 
-            [Option('t', "turn", DefaultValue = 200, HelpText = "Turn time in milliseconds.")]
+            [Option('t', "turn", DefaultValue = 1000, HelpText = "Turn time in milliseconds.")]
             public int TurnTimeMilliseconds { get; set; }
 
             [Option('d', "duration", DefaultValue = 120, HelpText = "Expected single match duration in seconds.")]
