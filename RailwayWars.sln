@@ -1,0 +1,73 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RailwayWars.Contracts", "RailwayWars.Contracts\RailwayWars.Contracts.csproj", "{4168BFE9-C1B2-4F99-98C0-ACB50E26FC2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RailwayWars.ContestRunner", "RailwayWars.ContestRunner\RailwayWars.ContestRunner.csproj", "{88BA5C51-5459-487E-A29D-C88DD24B92C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RailwayWars.ContestRunner.Tests", "RailwayWars.ContestRunner.Tests\RailwayWars.ContestRunner.Tests.csproj", "{55D7D029-8001-45ED-AA33-4528AC56B2D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RailwayWars.WinFormsViewer", "RailwayWars.WinFormsViewer\RailwayWars.WinFormsViewer.csproj", "{7FB21FF6-8C66-4F41-8A7F-23E01E30455D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0F5F6027-85CD-4571-9272-ACCB9B846EEE}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4168BFE9-C1B2-4F99-98C0-ACB50E26FC2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4168BFE9-C1B2-4F99-98C0-ACB50E26FC2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4168BFE9-C1B2-4F99-98C0-ACB50E26FC2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4168BFE9-C1B2-4F99-98C0-ACB50E26FC2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88BA5C51-5459-487E-A29D-C88DD24B92C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88BA5C51-5459-487E-A29D-C88DD24B92C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88BA5C51-5459-487E-A29D-C88DD24B92C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88BA5C51-5459-487E-A29D-C88DD24B92C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55D7D029-8001-45ED-AA33-4528AC56B2D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55D7D029-8001-45ED-AA33-4528AC56B2D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55D7D029-8001-45ED-AA33-4528AC56B2D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55D7D029-8001-45ED-AA33-4528AC56B2D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FB21FF6-8C66-4F41-8A7F-23E01E30455D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FB21FF6-8C66-4F41-8A7F-23E01E30455D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FB21FF6-8C66-4F41-8A7F-23E01E30455D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FB21FF6-8C66-4F41-8A7F-23E01E30455D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.FileWidth = 120
+		$1.TabsToSpaces = False
+		$1.EolMarker = Unix
+		$1.inheritsSet = VisualStudio
+		$1.inheritsScope = text/plain
+		$1.scope = text/plain
+		$1.TabWidth = 5
+		$1.IndentWidth = 5
+		$0.CSharpFormattingPolicy = $2
+		$2.IndentSwitchSection = True
+		$2.SpacingAfterMethodDeclarationName = False
+		$2.SpaceAfterMethodCallName = False
+		$2.SpaceBeforeOpenSquareBracket = False
+		$2.inheritsSet = Mono
+		$2.inheritsScope = text/x-csharp
+		$2.scope = text/x-csharp
+		$2.NewLinesForBracesInProperties = True
+		$2.NewLinesForBracesInAccessors = True
+		$2.NewLinesForBracesInAnonymousMethods = True
+		$2.NewLinesForBracesInControlBlocks = True
+		$2.NewLinesForBracesInAnonymousTypes = True
+		$2.NewLinesForBracesInObjectCollectionArrayInitializers = True
+		$2.NewLinesForBracesInLambdaExpressionBody = True
+		$2.NewLineForElse = True
+		$2.NewLineForCatch = True
+		$2.NewLineForFinally = True
+		$2.NewLineForMembersInObjectInit = True
+		$2.NewLineForMembersInAnonymousTypes = True
+		$2.NewLineForClausesInQuery = True
+	EndGlobalSection
+EndGlobal
