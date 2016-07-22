@@ -19,7 +19,7 @@ The game ends when no free cells are available or no cell was bought for fixed a
 Player gets points for:
 
 - 1 point for every owned cell.
-- n*n*n/m points for every connected pair of cities where n is the length of the shortest possible connection and m is
+- `n * n * n / m` points for every connected pair of cities where `n` is the length of the shortest possible connection and `m` is
 the length of player's shortest connection.
 
 Player with most points wins.
@@ -35,4 +35,4 @@ money when an auction takes place then it is assumed that he made an offer with 
 
 # Credits
 
-Icon made by [Lukas Software](http://www.awicons.com/) downloaded from http://findicons.com/.
+The game viewer icon made by [Lukas Software](http://www.awicons.com/) downloaded from http://findicons.com/.
