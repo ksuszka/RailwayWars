@@ -23,7 +23,7 @@ namespace RailwayWars.WinFormsViewer
 
         static Visualiser()
         {
-            FreeCellBrushes = Enumerable.Range(0, 160).Select(i => new SolidBrush(Color.FromArgb(0, 255 - i, 0))).ToArray();
+            FreeCellBrushes = Enumerable.Range(0, 200).Select(i => new SolidBrush(Color.FromArgb(0, 255 - i, 0))).ToArray();
         }
 
         public Visualiser(int cellWidth)

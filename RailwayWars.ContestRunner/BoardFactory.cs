@@ -93,7 +93,8 @@ namespace RailwayWars.ContestRunner
             var turnTime = TimeSpan.FromMilliseconds(turnTimeMilliseconds);
 
             var cells = GenerateEmptyGrid(size);
-            cells[new Cell(size / 2 + size / 2 / 2, size / 2)] = 10000000;
+            var center = new Cell(size / 2 + size / 2 / 2, size / 2);
+            cells.Keys.Where(c => c.HexManhattanDistance(center) < size / 3).ToList().ForEach(c => cells[c] = 1000000);
             cells = Enumerable.Range(0, size).Aggregate(cells, (c, _) => c.Blur());
 
             var threshold = cells.Values.OrderByDescending(i => i).Skip(cells.Count * 65 / 100).First();
