@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using RailwayWars.ContestRunner.Rating;
 
 namespace RailwayWars.ContestRunner
 {
@@ -19,17 +20,20 @@ namespace RailwayWars.ContestRunner
         private static readonly string PlayersTournamentFileName = "players_tournament.json";
         private readonly List<RemotePlayer> _players;
         private readonly Func<int, BoardDefinition> _boardGenerator;
+        private readonly IRatingStrategy<string> _ratingStrategy;
         private int _gameNumber;
 
         public IEnumerable<RemotePlayer> Players => _players;
         public TimeSpan GameBreakTime { get; set; } = TimeSpan.FromSeconds(1);
         public event Action<string> StateUpdated;
 
-        public Tournament(Func<int, BoardDefinition> boardGenerator)
+        public Tournament(Func<int, BoardDefinition> boardGenerator, IRatingStrategy<string> ratingStrategy)
         {
             _boardGenerator = boardGenerator;
+            _ratingStrategy = ratingStrategy;
             _gameNumber = 0;
             _players = LoadPlayers();
+            _players.ForEach(player => player.Rating = player.Rating ?? _ratingStrategy.InitialRating);
         }
 
         private void ReportGameState(GameState gameState)
@@ -59,14 +63,9 @@ namespace RailwayWars.ContestRunner
         private void UpdatePlayersScores(IDictionary<string, int> scores)
         {
             var playerMap = _players.ToDictionary(p => p.Id);
-            // Assign tournament points based on order of scored points
-            var sortedScores = scores.ToList().GroupBy(k => k.Value, k => k.Key).OrderByDescending(g => g.Key);
-            var points = scores.Count();
-            foreach (var score in sortedScores)
-            {
-                score.ToList().ForEach(playerId => playerMap[playerId].TotalScore += points);
-                points -= score.Count();
-            }
+            var playerRatingsAndScores = scores.Select(s => new PlayerRatingScore<string>(s.Key, playerMap[s.Key].Rating ?? _ratingStrategy.InitialRating, s.Value));
+            var newPlayerRatings = _ratingStrategy.Calculate(playerRatingsAndScores);
+            newPlayerRatings.ToList().ForEach(pr => playerMap[pr.Id].Rating = pr.Rating);
             SavePlayers(_players);
         }
 

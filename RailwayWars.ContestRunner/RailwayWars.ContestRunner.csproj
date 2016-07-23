@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -55,6 +55,9 @@
     <Compile Include="IPlayer.cs" />
     <Compile Include="Mapping.cs" />
     <Compile Include="PlayersConnector.cs" />
+    <Compile Include="Rating\EloRatingStrategy.cs" />
+    <Compile Include="Rating\IRatingStrategy.cs" />
+    <Compile Include="Rating\OrderedRatingStrategy.cs" />
     <Compile Include="RemotePlayer.cs" />
     <Compile Include="Tournament.cs" />
     <Compile Include="ViewersConnector.cs" />

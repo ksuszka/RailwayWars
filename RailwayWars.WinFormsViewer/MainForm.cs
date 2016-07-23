@@ -61,9 +61,9 @@ namespace RailwayWars.WinFormsViewer
             info.AppendLine("Overall classification:");
             info.AppendLine();
             state.Players.ToList()
-                .OrderByDescending(p => p.TotalScore)
+                .OrderByDescending(p => p.Rating)
                 .ToList()
-                .ForEach(player => { info.AppendLine($"{player.Name} - {player.TotalScore}"); });
+                .ForEach(player => { info.AppendLine($"{player.Name} - {player.Rating}"); });
 
             info.AppendLine();
             info.AppendLine("Current game:");

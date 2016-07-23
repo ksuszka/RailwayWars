@@ -20,7 +20,7 @@ namespace RailwayWars.ContestRunner
         private DateTime _lastTurnStartTime = DateTime.UtcNow;
         private BufferBlock<string> commandQueue = new BufferBlock<string>();
         public string Name { get; set; }
-        public int TotalScore { get; set; }
+        public int? Rating { get; set; }
         public string LoginId { get; set; }
         public event Action<string> GameStateUpdated;
         public string Id { get; set; }

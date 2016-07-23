@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using CommandLine;
 using CommandLine.Text;
+using RailwayWars.ContestRunner.Rating;
 
 namespace RailwayWars.ContestRunner
 {
@@ -70,7 +71,7 @@ namespace RailwayWars.ContestRunner
         {
             try
             {
-                var tournament = new Tournament(boardGenerator)
+                var tournament = new Tournament(boardGenerator, new EloRatingStrategy<string>())
                 {
                     GameBreakTime = Settings.GameBreakTime
                 };
