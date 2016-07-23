@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RailwayWars.ContestRunner.Rating
 {
@@ -21,6 +18,7 @@ namespace RailwayWars.ContestRunner.Rating
                 score.ToList().ForEach(playerId => playerMap[playerId] += points);
                 points -= score.Count();
             }
+
             return playerMap.Select(kv => new PlayerRating<TPlayerId>(kv.Key, kv.Value)).ToList();
         }
     }
